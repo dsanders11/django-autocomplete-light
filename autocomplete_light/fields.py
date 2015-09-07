@@ -38,10 +38,6 @@ class FieldBase(object):
         super(FieldBase, self).__init__(*args, **kwargs)
 
     def get_autocomplete(self, autocomplete, registry, widget):
-        if widget:
-            # BC: maybe defining the autocomplete as a widget argument ?
-            autocomplete = getattr(widget, 'autocomplete', None)
-
         registry = registry or default_registry
         return registry.get_autocomplete_from_arg(autocomplete)
 
