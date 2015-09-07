@@ -62,6 +62,9 @@ class FieldBase(object):
             raise forms.ValidationError('%s cannot validate %s' % (
                 self.autocomplete.__name__, value))
 
+    def to_python(self, value):
+        return self.autocomplete().choice_value(value)
+
 
 class ChoiceField(FieldBase, forms.ChoiceField):
     widget = ChoiceWidget
