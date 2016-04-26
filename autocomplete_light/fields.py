@@ -67,7 +67,7 @@ class FieldBase(object):
                                         code='invalid', params=error_params)
 
     def to_python(self, value):
-        return self.autocomplete().choice_value(value)
+        return self.autocomplete().to_python(value)
 
 
 class ChoiceField(FieldBase, forms.ChoiceField):

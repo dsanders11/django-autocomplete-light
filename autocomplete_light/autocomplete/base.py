@@ -209,3 +209,6 @@ class AutocompleteBase(AutocompleteInterface):
         implementation returns the textual representation.
         """
         return force_text(choice)
+
+    def to_python(self, value):
+        return self.choice_value(value)
